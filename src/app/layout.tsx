@@ -13,6 +13,27 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Dieter Lunn, software developer building products that matter.",
   metadataBase: new URL("https://dieterlunn.ca"),
+  openGraph: {
+    type: "website",
+    url: "https://dieterlunn.ca",
+    title: "Dieter Lunn — Software Developer",
+    description:
+      "Portfolio of Dieter Lunn, software developer building products that matter.",
+    siteName: "Dieter Lunn",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dieter Lunn — Software Developer",
+    description:
+      "Portfolio of Dieter Lunn, software developer building products that matter.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: "https://dieterlunn.ca",
+  },
 };
 
 export default function RootLayout({

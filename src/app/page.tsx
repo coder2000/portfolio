@@ -197,7 +197,7 @@ export default function Home() {
                 same care and precision to every project.
               </p>
               <a
-                href="mailto:hello@dieterlunn.ca"
+                href="mailto:work@dieterlunn.ca"
                 className="inline-flex items-center gap-2 text-white font-semibold text-sm tracking-wide border-b border-zinc-700 pb-1 w-fit hover:border-white transition-colors"
               >
                 Get in touch
