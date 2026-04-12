@@ -20,12 +20,17 @@ export const metadata: Metadata = {
     description:
       "Portfolio of Dieter Lunn, software developer building products that matter.",
     siteName: "Dieter Lunn",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dieter Lunn — Software Developer",
     description:
       "Portfolio of Dieter Lunn, software developer building products that matter.",
+    images: ["/og-image.png"],
+  },
+  icons: {
+    icon: "/favicon.png",
   },
   robots: {
     index: true,
