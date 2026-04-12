@@ -7,28 +7,28 @@ const projects = [
     name: "Zeiss Points",
     url: "https://zeisspoints.com",
     description:
-      "Loyalty points management portal for authorized ZEISS Sports Optics and Photo dealers.",
+      "A private dealer portal for ZEISS Sports Optics and Photo sales reps across two countries. Reps submit sales to earn points, admins approve them, and the platform maintains a verified point balance ledger — handling different point values per country without ever letting the books go out of sync.",
     screenshot: "/screenshots/zeisspoints.png",
   },
   {
     name: "School Bus Hero",
     url: "https://schoolbushero.com",
     description:
-      "Recruiting platform connecting school bus driver candidates with employers — handling job postings, CDL compliance, and driver associations.",
+      "A niche job board built specifically for the school bus industry. Drivers find employers who are actually hiring for their role — not buried under generic listings — while districts get applicants who already know what the job is. The platform handles job postings, driver profiles, and employer alerts when credentials are nearing expiry.",
     screenshot: "/screenshots/schoolbushero.png",
   },
   {
     name: "Jack's View",
     url: "https://jacksview.com",
     description:
-      "AI-powered home documentation app. Log repairs, track equipment, store documents, and ask Jack anything about your home's history.",
+      "A home documentation app with an AI assistant named after a Sicilian master craftsman. Homeowners log repairs, store documents, and track equipment — then ask Jack anything about their home's history. Jack also keeps an eye on aging systems and seasonal maintenance, so nothing quietly falls through the cracks.",
     screenshot: "/screenshots/jacksview.png",
   },
   {
     name: "Chicago's Pulse",
     url: "https://chicagospulse.com",
     description:
-      "American Heart Association authorized training center offering CPR, BLS, ACLS, and first aid certifications in the Chicago area.",
+      "A booking platform for an AHA-authorized CPR and first aid training center staffed by active paramedics and ER nurses. Students pick from a monthly class schedule with fixed capacity, book their spot, and pay — all online. The scheduling system is built around how the instructors actually plan their month.",
     screenshot: "/screenshots/chicagospulse.png",
   },
 ];
