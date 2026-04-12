@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+const stack = ["Rails 8", "Tailwind", "Turbo", "Stimulus"];
+
 const projects = [
   {
     name: "Zeiss Points",
@@ -145,9 +147,19 @@ export default function Home() {
                     <h3 className="text-zinc-950 font-bold text-xl mb-1">
                       {project.name}
                     </h3>
-                    <p className="text-zinc-500 text-sm leading-relaxed">
+                    <p className="text-zinc-500 text-sm leading-relaxed mb-4">
                       {project.description}
                     </p>
+                    <div className="flex flex-wrap gap-2">
+                      {stack.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-medium text-zinc-500 bg-zinc-100 px-2 py-1 rounded-md"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                   <span className="shrink-0 mt-1 text-zinc-300 group-hover:text-zinc-950 transition-colors">
                     <svg
