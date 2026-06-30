@@ -2,6 +2,36 @@ import Image from "next/image";
 
 const stack = ["Rails 8", "Tailwind", "Turbo", "Stimulus"];
 
+const skills = [
+  "Ruby",
+  "Rails 8",
+  "Hotwire",
+  "Turbo",
+  "Stimulus",
+  "PostgreSQL",
+  "RSpec",
+  "React",
+  "Next.js",
+  "TypeScript",
+  "JavaScript",
+  "HTML/CSS",
+  "Tailwind CSS",
+  "React Native",
+  "Swift",
+  "iOS",
+  "Kotlin",
+  "Android",
+  "Java",
+  "Docker",
+  "GitHub Actions",
+  "Git",
+];
+
+const education = {
+  credential: "Diploma, Information Systems Technology",
+  institution: "Red River College",
+};
+
 const projects = [
   {
     name: "Zeiss Points",
@@ -52,10 +82,22 @@ export default function Home() {
             Work
           </a>
           <a
+            href="#skills"
+            className="text-white text-sm font-medium tracking-wide hover:opacity-60 transition-opacity"
+          >
+            Skills
+          </a>
+          <a
             href="#about"
             className="text-white text-sm font-medium tracking-wide hover:opacity-60 transition-opacity"
           >
             About
+          </a>
+          <a
+            href="#education"
+            className="text-white text-sm font-medium tracking-wide hover:opacity-60 transition-opacity"
+          >
+            Education
           </a>
         </div>
       </nav>
@@ -223,6 +265,57 @@ export default function Home() {
                   />
                 </svg>
               </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section id="skills" className="px-8 py-24 bg-[#fafaf8]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-baseline justify-between mb-16">
+            <h2
+              className="text-zinc-950 leading-none tracking-tighter"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900 }}
+            >
+              Skills
+            </h2>
+            <span className="text-zinc-400 text-sm font-medium">
+              {skills.length} technologies
+            </span>
+          </div>
+
+          <div className="flex flex-wrap gap-3">
+            {skills.map((skill) => (
+              <span
+                key={skill}
+                className="text-sm font-medium text-zinc-600 bg-white border border-zinc-200 px-4 py-2 rounded-lg"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Education */}
+      <section
+        id="education"
+        className="px-8 py-24 bg-zinc-950 border-t border-zinc-800"
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+            <h2
+              className="text-white leading-none tracking-tighter"
+              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900 }}
+            >
+              Education
+            </h2>
+            <div className="flex flex-col justify-center gap-2">
+              <h3 className="text-white font-bold text-xl">
+                {education.credential}
+              </h3>
+              <p className="text-zinc-400 text-base">{education.institution}</p>
             </div>
           </div>
         </div>
