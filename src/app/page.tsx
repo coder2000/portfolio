@@ -162,35 +162,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="on-ink px-6 sm:px-8 py-24 bg-ink">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-            <h2 className="reveal type-section text-on-ink">About</h2>
-            <div className="reveal flex flex-col justify-center gap-6">
-              <p className="text-on-ink text-lg leading-relaxed">
-                I&apos;m Dieter Lunn, a software developer with a focus on
-                building clean, reliable products. I work across the stack —
-                from product design to deployment.
-              </p>
-              <p className="text-on-ink-muted text-base leading-relaxed">
-                Whether it&apos;s a dealer loyalty platform for a global optics
-                brand, a hiring and onboarding system for a school bus company,
-                or a booking site for a first aid training center, I bring the
-                same care and precision to every project.
-              </p>
-              <a
-                href="mailto:work@dieterlunn.ca"
-                className="type-label inline-flex items-center gap-2 text-on-ink border-b border-ink-line pb-1 w-fit hover:border-accent-on-ink hover:text-accent-on-ink transition-colors"
-              >
-                Get in touch
-                <ArrowUpRight />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Toolkit + Education — reference material, one band, quieter scale. */}
       <section id="toolkit" className="px-6 sm:px-8 py-20 bg-paper">
         <div className="max-w-7xl mx-auto">
@@ -237,6 +208,35 @@ export default function Home() {
               <p className="text-on-paper-muted text-sm">
                 {education.institution}
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="on-ink px-6 sm:px-8 py-24 bg-ink">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+            <h2 className="reveal type-section text-on-ink">About</h2>
+            <div className="reveal flex flex-col justify-center gap-6">
+              <p className="text-on-ink text-lg leading-relaxed">
+                I&apos;m Dieter Lunn, a software developer with a focus on
+                building clean, reliable products. I work across the stack —
+                from product design to deployment.
+              </p>
+              <p className="text-on-ink-muted text-base leading-relaxed">
+                Whether it&apos;s a dealer loyalty platform for a global optics
+                brand, a hiring and onboarding system for a school bus company,
+                or a booking site for a first aid training center, I bring the
+                same care and precision to every project.
+              </p>
+              <a
+                href="mailto:work@dieterlunn.ca"
+                className="type-label inline-flex items-center gap-2 text-on-ink border-b border-ink-line pb-1 w-fit hover:border-accent-on-ink hover:text-accent-on-ink transition-colors"
+              >
+                Get in touch
+                <ArrowUpRight />
+              </a>
             </div>
           </div>
         </div>

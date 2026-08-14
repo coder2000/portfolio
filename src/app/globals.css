@@ -115,6 +115,20 @@ body {
   }
 }
 
+/* --- Nav ----------------------------------------------------------------
+   Transparent border in the resting state so marking a link active changes
+   colour only, never layout. */
+
+.navlink {
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.navlink[aria-current="true"] {
+  color: var(--color-on-ink);
+  border-bottom-color: var(--color-accent-on-ink);
+}
+
 /* --- Quality floor ------------------------------------------------------ */
 
 :focus-visible {

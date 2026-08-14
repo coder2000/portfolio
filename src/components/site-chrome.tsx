@@ -1,11 +1,13 @@
 import Link from "next/link";
 
-type NavLink = { href: string; label: string };
+/** `section` opts the link into scroll-spy; omit it for cross-page links. */
+type NavLink = { href: string; label: string; section?: string };
 
+// Order mirrors the page: Work, Toolkit, then About as the closing band.
 const homeLinks: NavLink[] = [
-  { href: "/#work", label: "Work" },
-  { href: "/#about", label: "About" },
-  { href: "/#toolkit", label: "Toolkit" },
+  { href: "/#work", label: "Work", section: "work" },
+  { href: "/#toolkit", label: "Toolkit", section: "toolkit" },
+  { href: "/#about", label: "About", section: "about" },
 ];
 
 /**
@@ -22,12 +24,13 @@ export function SiteNav({ links = homeLinks }: { links?: NavLink[] }) {
       >
         DL
       </Link>
-      <div className="flex gap-5 sm:gap-8">
+      <div className="flex gap-4 sm:gap-8">
         {links.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className="type-label text-on-ink-muted hover:text-on-ink transition-colors"
+            data-section={link.section}
+            className="navlink type-label text-on-ink-muted hover:text-on-ink transition-colors"
           >
             {link.label}
           </Link>
