@@ -1,143 +1,80 @@
 import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  SiteFooter,
+  SiteNav,
+} from "@/components/site-chrome";
+import { projects } from "@/data/projects";
 
-const hotwireStack = ["Rails 8", "Tailwind", "Turbo", "Stimulus"];
-
-const skills = [
-  "Ruby",
-  "Rails 8",
-  "Hotwire",
-  "Turbo",
-  "Stimulus",
-  "PostgreSQL",
-  "RSpec",
-  "React",
-  "Next.js",
-  "TypeScript",
-  "JavaScript",
-  "HTML/CSS",
-  "Tailwind CSS",
-  "React Native",
-  "Swift",
-  "iOS",
-  "Kotlin",
-  "Android",
-  "Java",
-  "Docker",
-  "GitHub Actions",
-  "Git",
+// Grouped rather than piled: the grouping is the information. A visitor
+// scanning for "can he do mobile?" should find the answer without reading 22
+// tags in sequence.
+const skillGroups = [
+  {
+    label: "Backend",
+    items: [
+      "Ruby",
+      "Rails 8",
+      "Hotwire",
+      "Turbo",
+      "Stimulus",
+      "PostgreSQL",
+      "RSpec",
+    ],
+  },
+  {
+    label: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML/CSS",
+      "Tailwind CSS",
+    ],
+  },
+  {
+    label: "Mobile",
+    items: ["React Native", "Swift", "iOS", "Kotlin", "Android", "Java"],
+  },
+  { label: "Platform", items: ["Docker", "GitHub Actions", "Git"] },
 ];
+
+const skillCount = skillGroups.reduce((n, g) => n + g.items.length, 0);
 
 const education = {
   credential: "Diploma, Information Systems Technology",
   institution: "Red River College",
 };
 
-const projects = [
-  {
-    name: "Zeiss Points",
-    url: "https://zeisspoints.com",
-    description:
-      "A private dealer portal for ZEISS Sports Optics and Photo sales reps across two countries. Reps submit sales to earn points, admins approve them, and the platform maintains a verified point balance ledger — handling different point values per country without ever letting the books go out of sync.",
-    screenshot: "/screenshots/zeisspoints.png",
-    stack: hotwireStack,
-  },
-  {
-    name: "School Bus Hero",
-    url: "https://schoolbushero.com",
-    description:
-      "A niche job board built specifically for the school bus industry. Drivers find employers who are actually hiring for their role — not buried under generic listings — while districts get applicants who already know what the job is. The platform handles job postings, driver profiles, and employer alerts when credentials are nearing expiry.",
-    screenshot: "/screenshots/schoolbushero.png",
-    stack: hotwireStack,
-  },
-  {
-    name: "Jack's View",
-    url: "https://jacksview.com",
-    description:
-      "A home documentation app with an AI assistant named after a Sicilian master craftsman. Homeowners log repairs, store documents, and track equipment — then ask Jack anything about their home's history. Jack also keeps an eye on aging systems and seasonal maintenance, so nothing quietly falls through the cracks.",
-    screenshot: "/screenshots/jacksview.png",
-    stack: hotwireStack,
-  },
-  {
-    name: "Chicago's Pulse",
-    url: "https://chicagospulse.com",
-    description:
-      "A booking platform for an AHA-authorized CPR and first aid training center staffed by active paramedics and ER nurses. Students pick from a monthly class schedule with fixed capacity, book their spot, and pay — all online. The scheduling system is built around how the instructors actually plan their month.",
-    screenshot: "/screenshots/chicagospulse.png",
-    stack: hotwireStack,
-  },
-  {
-    name: "Fishing Creek Transportation",
-    url: "https://fishingcreektrans.com",
-    description:
-      "The driver hiring and operations platform for a family-owned school bus company that has served Columbia and Montour counties since 1959. Applicants find openings by area and apply online, then move through a guided onboarding workflow — credentials, documents, and training videos tracked to completion — while staff run the fleet, districts, and referrals from an admin dashboard.",
-    screenshot: "/screenshots/fishingcreektrans.png",
-    stack: ["Rails 8", "Inertia", "React", "Tailwind"],
-  },
-];
-
 export default function Home() {
   return (
-    <div
-      className="min-h-screen"
-      style={{ fontFamily: "var(--font-geist), system-ui, sans-serif" }}
-    >
-      {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-6 mix-blend-difference">
-        <span className="text-white text-sm font-semibold tracking-widest uppercase">
-          DL
-        </span>
-        <div className="flex gap-8">
-          <a
-            href="#work"
-            className="text-white text-sm font-medium tracking-wide hover:opacity-60 transition-opacity"
-          >
-            Work
-          </a>
-          <a
-            href="#skills"
-            className="text-white text-sm font-medium tracking-wide hover:opacity-60 transition-opacity"
-          >
-            Skills
-          </a>
-          <a
-            href="#about"
-            className="text-white text-sm font-medium tracking-wide hover:opacity-60 transition-opacity"
-          >
-            About
-          </a>
-          <a
-            href="#education"
-            className="text-white text-sm font-medium tracking-wide hover:opacity-60 transition-opacity"
-          >
-            Education
-          </a>
-        </div>
-      </nav>
+    <div className="min-h-screen">
+      <SiteNav />
 
       {/* Hero */}
-      <section className="relative flex flex-col justify-end bg-zinc-950 min-h-screen px-8 pb-20 pt-32">
+      <section
+        id="top"
+        className="on-ink relative flex flex-col justify-end bg-ink min-h-screen px-6 sm:px-8 pb-20 pt-32"
+      >
         <div className="max-w-7xl mx-auto w-full">
-          <p className="text-zinc-500 text-sm font-medium tracking-widest uppercase mb-8">
+          <p className="type-label text-accent-on-ink mb-8">
             Software Developer
           </p>
-          <h1
-            className="text-white leading-none tracking-tighter mb-12"
-            style={{
-              fontSize: "clamp(3.5rem, 12vw, 10rem)",
-              fontWeight: 900,
-            }}
-          >
+          <h1 className="type-hero text-on-ink mb-12">
             Dieter
             <br />
             Lunn
           </h1>
-          <div className="flex items-end justify-between flex-wrap gap-6">
-            <p className="text-zinc-400 text-lg max-w-sm leading-relaxed">
+          <div className="flex items-end justify-between flex-wrap gap-6 border-t border-ink-line pt-8">
+            <p className="text-on-ink-muted text-lg max-w-sm leading-relaxed">
               Building products that are fast, useful, and built to last.
             </p>
             <a
               href="#work"
-              className="text-zinc-400 text-sm font-medium tracking-wide hover:text-white transition-colors flex items-center gap-2"
+              className="type-label text-on-ink-muted hover:text-on-ink transition-colors flex items-center gap-2"
             >
               See my work
               <svg
@@ -145,7 +82,7 @@ export default function Home() {
                 height="16"
                 viewBox="0 0 16 16"
                 fill="none"
-                className="rotate-90"
+                aria-hidden="true"
               >
                 <path
                   d="M8 3L8 13M8 13L13 8M8 13L3 8"
@@ -161,31 +98,25 @@ export default function Home() {
       </section>
 
       {/* Work */}
-      <section id="work" className="px-8 py-24 bg-[#fafaf8]">
+      <section id="work" className="px-6 sm:px-8 py-24 bg-paper">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between mb-16">
-            <h2
-              className="text-zinc-950 leading-none tracking-tighter"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900 }}
-            >
-              Work
-            </h2>
-            <span className="text-zinc-400 text-sm font-medium">
+          <div className="reveal flex items-baseline justify-between gap-6 border-b border-rule pb-6 mb-16">
+            <h2 className="type-section text-on-paper">Work</h2>
+            <span className="type-label text-on-paper-muted shrink-0">
               {projects.length} projects
             </span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <a
-                key={project.name}
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block bg-white rounded-2xl overflow-hidden border border-zinc-100 hover:border-zinc-300 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
+              // Links to the case study, not the live site: an outbound link
+              // here loses the visitor on the first click.
+              <Link
+                key={project.slug}
+                href={`/work/${project.slug}`}
+                className="reveal group flex flex-col bg-card rounded-2xl overflow-hidden border border-rule hover:border-accent transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
               >
-                {/* Screenshot */}
-                <div className="relative aspect-video bg-zinc-100 overflow-hidden">
+                <div className="relative aspect-video bg-paper overflow-hidden">
                   <Image
                     src={project.screenshot}
                     alt={`${project.name} screenshot`}
@@ -195,69 +126,54 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Card body */}
-                <div className="p-6 flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-zinc-950 font-bold text-xl mb-1">
-                      {project.name}
-                    </h3>
-                    <p className="text-zinc-500 text-sm leading-relaxed mb-4">
-                      {project.description}
-                    </p>
+                <div className="p-6 flex flex-col grow">
+                  <p className="type-label text-accent mb-2">
+                    {project.sector}
+                  </p>
+                  <h3 className="type-card-title text-on-paper mb-2">
+                    {project.name}
+                  </h3>
+                  <p className="text-on-paper-muted text-sm leading-relaxed mb-4">
+                    {project.summary}
+                  </p>
+
+                  {/* Pinned to the bottom so the row of cards lines up
+                      regardless of how long the summary runs. */}
+                  <div className="mt-auto flex items-center justify-between gap-4 pt-4 border-t border-rule">
                     <div className="flex flex-wrap gap-2">
                       {project.stack.map((tag) => (
                         <span
                           key={tag}
-                          className="text-xs font-medium text-zinc-500 bg-zinc-100 px-2 py-1 rounded-md"
+                          className="type-label text-on-paper-muted bg-paper border border-rule px-2 py-1 rounded-md"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
+                    <span className="type-label shrink-0 text-on-paper-muted group-hover:text-accent transition-colors flex items-center gap-1.5">
+                      Case study
+                      <ArrowRight size={12} />
+                    </span>
                   </div>
-                  <span className="shrink-0 mt-1 text-zinc-300 group-hover:text-zinc-950 transition-colors">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                    >
-                      <path
-                        d="M5 15L15 5M15 5H7M15 5V13"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* About */}
-      <section id="about" className="px-8 py-24 bg-zinc-950">
+      <section id="about" className="on-ink px-6 sm:px-8 py-24 bg-ink">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            <h2
-              className="text-white leading-none tracking-tighter"
-              style={{
-                fontSize: "clamp(2.5rem, 6vw, 5rem)",
-                fontWeight: 900,
-              }}
-            >
-              About
-            </h2>
-            <div className="flex flex-col justify-center gap-6">
-              <p className="text-zinc-300 text-lg leading-relaxed">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+            <h2 className="reveal type-section text-on-ink">About</h2>
+            <div className="reveal flex flex-col justify-center gap-6">
+              <p className="text-on-ink text-lg leading-relaxed">
                 I&apos;m Dieter Lunn, a software developer with a focus on
                 building clean, reliable products. I work across the stack —
                 from product design to deployment.
               </p>
-              <p className="text-zinc-500 text-base leading-relaxed">
+              <p className="text-on-ink-muted text-base leading-relaxed">
                 Whether it&apos;s a dealer loyalty platform for a global optics
                 brand, a hiring and onboarding system for a school bus company,
                 or a booking site for a first aid training center, I bring the
@@ -265,84 +181,68 @@ export default function Home() {
               </p>
               <a
                 href="mailto:work@dieterlunn.ca"
-                className="inline-flex items-center gap-2 text-white font-semibold text-sm tracking-wide border-b border-zinc-700 pb-1 w-fit hover:border-white transition-colors"
+                className="type-label inline-flex items-center gap-2 text-on-ink border-b border-ink-line pb-1 w-fit hover:border-accent-on-ink hover:text-accent-on-ink transition-colors"
               >
                 Get in touch
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path
-                    d="M3 11L11 3M11 3H5M11 3V9"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <ArrowUpRight />
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Skills */}
-      <section id="skills" className="px-8 py-24 bg-[#fafaf8]">
+      {/* Toolkit + Education — reference material, one band, quieter scale. */}
+      <section id="toolkit" className="px-6 sm:px-8 py-20 bg-paper">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-baseline justify-between mb-16">
-            <h2
-              className="text-zinc-950 leading-none tracking-tighter"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900 }}
-            >
-              Skills
-            </h2>
-            <span className="text-zinc-400 text-sm font-medium">
-              {skills.length} technologies
-            </span>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-12 lg:gap-16">
+            <div className="reveal">
+              <div className="flex items-baseline justify-between gap-6 border-b border-rule pb-4 mb-8">
+                <h2 className="type-subsection text-on-paper">Toolkit</h2>
+                <span className="type-label text-on-paper-muted shrink-0">
+                  {skillCount} technologies
+                </span>
+              </div>
 
-          <div className="flex flex-wrap gap-3">
-            {skills.map((skill) => (
-              <span
-                key={skill}
-                className="text-sm font-medium text-zinc-600 bg-white border border-zinc-200 px-4 py-2 rounded-lg"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+              <dl className="flex flex-col gap-6">
+                {skillGroups.map((group) => (
+                  <div
+                    key={group.label}
+                    className="grid grid-cols-1 sm:grid-cols-[7rem_1fr] gap-2 sm:gap-4"
+                  >
+                    <dt className="type-label text-on-paper-muted sm:pt-2">
+                      {group.label}
+                    </dt>
+                    <dd className="flex flex-wrap gap-2">
+                      {group.items.map((skill) => (
+                        <span
+                          key={skill}
+                          className="text-sm text-on-paper bg-card border border-rule px-3 py-1.5 rounded-lg"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
 
-      {/* Education */}
-      <section
-        id="education"
-        className="px-8 py-24 bg-zinc-950 border-t border-zinc-800"
-      >
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-            <h2
-              className="text-white leading-none tracking-tighter"
-              style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", fontWeight: 900 }}
-            >
-              Education
-            </h2>
-            <div className="flex flex-col justify-center gap-2">
-              <h3 className="text-white font-bold text-xl">
+            <div className="reveal">
+              <div className="border-b border-rule pb-4 mb-8">
+                <h2 className="type-subsection text-on-paper">Education</h2>
+              </div>
+              <p className="text-on-paper font-medium text-base leading-snug mb-1">
                 {education.credential}
-              </h3>
-              <p className="text-zinc-400 text-base">{education.institution}</p>
+              </p>
+              <p className="text-on-paper-muted text-sm">
+                {education.institution}
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-8 py-8 bg-zinc-950 border-t border-zinc-800">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <span className="text-zinc-600 text-sm">
-            © {new Date().getFullYear()} Dieter Lunn
-          </span>
-          <span className="text-zinc-700 text-sm">dieterlunn.ca</span>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

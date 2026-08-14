@@ -1,15 +1,151 @@
 @import "tailwindcss";
 
-:root {
-  --background: #fafaf8;
-  --foreground: #0a0a0a;
+@theme {
+  /* Ground */
+  --color-ink: #16264a;
+  --color-ink-line: #2a3a5e;
+  --color-paper: #f2f2ef;
+  --color-card: #ffffff;
+  --color-rule: #d8d7d1;
+
+  /* Type on paper */
+  --color-on-paper: #1a1c22;
+  --color-on-paper-muted: #5b5f6b;
+
+  /* Type on ink */
+  --color-on-ink: #e8e7e2;
+  --color-on-ink-muted: #98a3bd;
+
+  /* One accent, two grounds */
+  --color-accent: #2f5fd0;
+  --color-accent-on-ink: #7fa5f5;
+}
+
+@theme inline {
+  --font-display: var(--font-archivo), "Arial Black", system-ui, sans-serif;
+  --font-body: var(--font-geist), system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-paper);
+  color: var(--color-on-paper);
+  font-family: var(--font-body);
 }
 
-html {
-  scroll-behavior: smooth;
+/* --- Display type roles -------------------------------------------------
+   Archivo is a variable font with a width axis. Each role sets its own
+   wdth so the scale reads as one voice at three volumes. */
+
+.type-hero {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 118;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 12vw, 9.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+}
+
+/* Work, About — the sections that carry the argument. */
+.type-section {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 110;
+  font-weight: 800;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+/* Toolkit, Education — supporting reference material, deliberately quieter. */
+.type-subsection {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 100;
+  font-weight: 700;
+  font-size: clamp(1.375rem, 2.4vw, 1.875rem);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+
+.type-card-title {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 104;
+  font-weight: 700;
+  font-size: 1.3125rem;
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+}
+
+/* Record labels: counts, sectors, stack tags, footer. */
+.type-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* --- Scroll reveal ------------------------------------------------------
+   Driven by IntersectionObserver, not `animation-timeline: view()`. A view
+   timeline measures how far an element has travelled through the scrollport,
+   so content at the end of the document can never complete it — there is no
+   scroll left to travel. That strands the last band at partial or zero
+   opacity, which is a content-loss bug, not a cosmetic one.
+
+   The hidden state is scoped to `.js-reveal`, a class an inline script adds
+   before first paint. No script, no hidden content: if JS is unavailable or
+   fails, every `.reveal` block renders normally. Reduced-motion never gets
+   the class at all.
+
+   Animates `transform`, not `translate`: Tailwind v4's translate/scale
+   utilities write to the `translate` and `scale` properties, so animating
+   those would override the card's hover lift and the image zoom. */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  .js-reveal .reveal.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+}
+
+/* --- Quality floor ------------------------------------------------------ */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* On the ink ground the paper-side accent drops to 2.6:1 — too dark to
+   locate. Swap to the lighter tint so focus stays visible on both grounds. */
+.on-ink :focus-visible {
+  outline-color: var(--color-accent-on-ink);
+}
+
+/* Anchor targets must clear the fixed nav, or the heading lands under it. */
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
