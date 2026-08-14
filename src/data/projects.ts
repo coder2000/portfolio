@@ -20,6 +20,8 @@ export type Project = {
   challenge: string;
   capabilities: Capability[];
   screenshot: string;
+  /** 1200x630 social card, letterboxed onto ink. See public/og/. */
+  ogImage: string;
   stack: string[];
 };
 
@@ -59,6 +61,7 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/zeisspoints.png",
+    ogImage: "/og/zeisspoints.png",
     stack: hotwireStack,
   },
   {
@@ -90,6 +93,7 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/schoolbushero.png",
+    ogImage: "/og/schoolbushero.png",
     stack: hotwireStack,
   },
   {
@@ -125,6 +129,7 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/jacksview.png",
+    ogImage: "/og/jacksview.png",
     stack: hotwireStack,
   },
   {
@@ -156,6 +161,7 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/chicagospulse.png",
+    ogImage: "/og/chicagospulse.png",
     stack: hotwireStack,
   },
   {
@@ -191,6 +197,7 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/fishingcreektrans.png",
+    ogImage: "/og/fishingcreektrans.png",
     stack: ["Rails 8", "Inertia", "React", "Tailwind"],
   },
 ];

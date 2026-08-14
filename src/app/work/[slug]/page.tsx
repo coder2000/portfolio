@@ -8,7 +8,9 @@ import {
   SiteFooter,
   SiteNav,
 } from "@/components/site-chrome";
+import { ProjectStructuredData } from "@/components/structured-data";
 import { getNextProject, getProject, projects } from "@/data/projects";
+import { SITE_NAME, canonical } from "@/data/site";
 
 // Static export: every path is known at build time, so an unlisted slug is a
 // 404 rather than an on-demand render.
@@ -27,26 +29,37 @@ export async function generateMetadata({
   const project = getProject(slug);
   if (!project) return {};
 
-  const title = `${project.name} — Dieter Lunn`;
-  const url = `https://dieterlunn.ca/work/${project.slug}/`;
+  const url = canonical(`/work/${project.slug}`);
+  // The layout's title template appends " — Dieter Lunn"; OG and Twitter want
+  // the full string, since they are read outside the site.
+  const fullTitle = `${project.name} — ${SITE_NAME}`;
+  const image = {
+    url: project.ogImage,
+    width: 1200,
+    height: 630,
+    alt: `${project.name} — ${project.sector}`,
+  };
 
   return {
-    title,
+    title: project.name,
     description: project.summary,
     alternates: { canonical: url },
     openGraph: {
-      type: "article",
+      // Not `article`: these case studies carry no publish date, and an
+      // article without one is a card with a hole in it.
+      type: "website",
       url,
-      title,
+      title: fullTitle,
       description: project.summary,
-      siteName: "Dieter Lunn",
-      images: [{ url: project.screenshot }],
+      siteName: SITE_NAME,
+      locale: "en_CA",
+      images: [image],
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: fullTitle,
       description: project.summary,
-      images: [project.screenshot],
+      images: [image],
     },
   };
 }
@@ -69,6 +82,7 @@ export default async function CaseStudy({
 
   return (
     <div className="min-h-screen">
+      <ProjectStructuredData project={project} />
       <SiteNav links={navLinks} />
 
       {/* Header */}

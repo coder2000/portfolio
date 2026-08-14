@@ -6,6 +6,7 @@ import {
   SiteFooter,
   SiteNav,
 } from "@/components/site-chrome";
+import { HomeStructuredData } from "@/components/structured-data";
 import { projects } from "@/data/projects";
 
 // Grouped rather than piled: the grouping is the information. A visitor
@@ -52,6 +53,11 @@ const education = {
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <HomeStructuredData
+        knowsAbout={skillGroups.flatMap((group) => group.items)}
+        credential={education.credential}
+        institution={education.institution}
+      />
       <SiteNav />
 
       {/* Hero */}

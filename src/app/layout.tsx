@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
 import { Archivo, Geist, IBM_Plex_Mono } from "next/font/google";
+import {
+  SITE_AUTHOR,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+  canonical,
+} from "@/data/site";
 import "./globals.css";
 
 // Body. Neutral on purpose — it carries the reading, not the personality.
@@ -24,36 +32,60 @@ const plexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+const ogImage = {
+  url: "/og-image.png",
+  // The real dimensions of the file. Declaring 1200x630 for a 1536x1024 image
+  // makes scrapers lay out a card that does not match what they fetch.
+  width: 1536,
+  height: 1024,
+  alt: "Dieter Lunn — Software Developer",
+};
+
 export const metadata: Metadata = {
-  title: "Dieter Lunn — Software Developer",
-  description:
-    "Portfolio of Dieter Lunn, software developer building products that matter.",
-  metadataBase: new URL("https://dieterlunn.ca"),
+  title: {
+    default: SITE_TITLE,
+    // Child routes set a bare title; the suffix is applied here once.
+    template: `%s — ${SITE_NAME}`,
+  },
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  authors: [{ name: SITE_AUTHOR, url: canonical("/") }],
+  creator: SITE_AUTHOR,
+  publisher: SITE_AUTHOR,
   openGraph: {
     type: "website",
-    url: "https://dieterlunn.ca",
-    title: "Dieter Lunn — Software Developer",
-    description:
-      "Portfolio of Dieter Lunn, software developer building products that matter.",
-    siteName: "Dieter Lunn",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    url: canonical("/"),
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    siteName: SITE_NAME,
+    locale: "en_CA",
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dieter Lunn — Software Developer",
-    description:
-      "Portfolio of Dieter Lunn, software developer building products that matter.",
-    images: ["/og-image.png"],
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    // No `creator` handle — there is no social account to attribute this to.
+    images: [ogImage],
   },
   icons: {
     icon: "/favicon.png",
+    apple: "/apple-icon.png",
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+  // Trailing slash, because trailingSlash: true is what the host serves.
   alternates: {
-    canonical: "https://dieterlunn.ca",
+    canonical: canonical("/"),
   },
 };
 
