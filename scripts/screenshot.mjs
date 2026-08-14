@@ -5,6 +5,7 @@ const sites = [
   { name: "schoolbushero", url: "https://schoolbushero.com" },
   { name: "jacksview", url: "https://jacksview.com" },
   { name: "chicagospulse", url: "https://chicagospulse.com" },
+  { name: "fishingcreektrans", url: "https://fishingcreektrans.com" },
 ];
 
 const browser = await chromium.launch();

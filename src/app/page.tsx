@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-const stack = ["Rails 8", "Tailwind", "Turbo", "Stimulus"];
+const hotwireStack = ["Rails 8", "Tailwind", "Turbo", "Stimulus"];
 
 const skills = [
   "Ruby",
@@ -39,6 +39,7 @@ const projects = [
     description:
       "A private dealer portal for ZEISS Sports Optics and Photo sales reps across two countries. Reps submit sales to earn points, admins approve them, and the platform maintains a verified point balance ledger — handling different point values per country without ever letting the books go out of sync.",
     screenshot: "/screenshots/zeisspoints.png",
+    stack: hotwireStack,
   },
   {
     name: "School Bus Hero",
@@ -46,6 +47,7 @@ const projects = [
     description:
       "A niche job board built specifically for the school bus industry. Drivers find employers who are actually hiring for their role — not buried under generic listings — while districts get applicants who already know what the job is. The platform handles job postings, driver profiles, and employer alerts when credentials are nearing expiry.",
     screenshot: "/screenshots/schoolbushero.png",
+    stack: hotwireStack,
   },
   {
     name: "Jack's View",
@@ -53,6 +55,7 @@ const projects = [
     description:
       "A home documentation app with an AI assistant named after a Sicilian master craftsman. Homeowners log repairs, store documents, and track equipment — then ask Jack anything about their home's history. Jack also keeps an eye on aging systems and seasonal maintenance, so nothing quietly falls through the cracks.",
     screenshot: "/screenshots/jacksview.png",
+    stack: hotwireStack,
   },
   {
     name: "Chicago's Pulse",
@@ -60,6 +63,15 @@ const projects = [
     description:
       "A booking platform for an AHA-authorized CPR and first aid training center staffed by active paramedics and ER nurses. Students pick from a monthly class schedule with fixed capacity, book their spot, and pay — all online. The scheduling system is built around how the instructors actually plan their month.",
     screenshot: "/screenshots/chicagospulse.png",
+    stack: hotwireStack,
+  },
+  {
+    name: "Fishing Creek Transportation",
+    url: "https://fishingcreektrans.com",
+    description:
+      "The driver hiring and operations platform for a family-owned school bus company that has served Columbia and Montour counties since 1959. Applicants find openings by area and apply online, then move through a guided onboarding workflow — credentials, documents, and training videos tracked to completion — while staff run the fleet, districts, and referrals from an admin dashboard.",
+    screenshot: "/screenshots/fishingcreektrans.png",
+    stack: ["Rails 8", "Inertia", "React", "Tailwind"],
   },
 ];
 
@@ -193,7 +205,7 @@ export default function Home() {
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {stack.map((tag) => (
+                      {project.stack.map((tag) => (
                         <span
                           key={tag}
                           className="text-xs font-medium text-zinc-500 bg-zinc-100 px-2 py-1 rounded-md"
@@ -246,8 +258,9 @@ export default function Home() {
                 from product design to deployment.
               </p>
               <p className="text-zinc-500 text-base leading-relaxed">
-                Whether it&apos;s a loyalty platform for a global optics brand
-                or a first aid training center&apos;s web presence, I bring the
+                Whether it&apos;s a dealer loyalty platform for a global optics
+                brand, a hiring and onboarding system for a school bus company,
+                or a booking site for a first aid training center, I bring the
                 same care and precision to every project.
               </p>
               <a
