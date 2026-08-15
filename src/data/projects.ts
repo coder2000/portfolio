@@ -20,6 +20,12 @@ export type Project = {
   challenge: string;
   capabilities: Capability[];
   screenshot: string;
+  /**
+   * What the screenshot actually shows. "<name> screenshot" describes the
+   * file rather than the image, which leaves a screen reader user with
+   * nothing and wastes the only text a crawler can read off the picture.
+   */
+  screenshotAlt: string;
   /** 1200x630 social card, letterboxed onto ink. See public/og/. */
   ogImage: string;
   stack: string[];
@@ -61,6 +67,8 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/zeisspoints.png",
+    screenshotAlt:
+      "The Zeiss Points sign-in page: a hunter sighting through a ZEISS riflescope, with a dealer store finder and login form set over the photograph.",
     ogImage: "/og/zeisspoints.png",
     stack: hotwireStack,
   },
@@ -93,6 +101,8 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/schoolbushero.png",
+    screenshotAlt:
+      "The School Bus Hero home page: a student stepping off a bus past a smiling driver, headlined \u201cDrive your community forward\u201d above a job search button.",
     ogImage: "/og/schoolbushero.png",
     stack: hotwireStack,
   },
@@ -129,6 +139,8 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/jacksview.png",
+    screenshotAlt:
+      "The Jack\u2019s View home page: a family greeting grandparents at the front door, with the line \u201cYour home holds a story. Jack helps you care for it.\u201d",
     ogImage: "/og/jacksview.png",
     stack: hotwireStack,
   },
@@ -161,6 +173,8 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/chicagospulse.png",
+    screenshotAlt:
+      "The Chicago\u2019s Pulse home page: American Heart Association training-center branding above a headline offering AHA-certified CPR, BLS, ACLS and PALS training in Chicago.",
     ogImage: "/og/chicagospulse.png",
     stack: hotwireStack,
   },
@@ -197,6 +211,8 @@ export const projects: Project[] = [
       },
     ],
     screenshot: "/screenshots/fishingcreektrans.png",
+    screenshotAlt:
+      "The Fishing Creek Transportation home page: a driver welcoming students aboard, headlined \u201cSafe, reliable rides for every student we carry,\u201d above counters for 65+ years, 4,000+ students, and 3 depots.",
     ogImage: "/og/fishingcreektrans.png",
     stack: ["Rails 8", "Inertia", "React", "Tailwind"],
   },

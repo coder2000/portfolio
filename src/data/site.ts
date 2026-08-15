@@ -22,5 +22,12 @@ export const SITE_EMAIL = "work@dieterlunn.ca";
 export const SITE_JOB_TITLE = "Software Developer";
 
 export const SITE_TITLE = "Dieter Lunn — Software Developer";
+
+/**
+ * Names the actual work rather than the ambition. "Products that matter" is
+ * true of every portfolio ever written and matches no query anyone types; the
+ * stack and the kinds of systems built are what someone is actually searching
+ * for. Kept under ~160 characters so it survives intact in a result snippet.
+ */
 export const SITE_DESCRIPTION =
-  "Portfolio of Dieter Lunn, software developer building products that matter.";
+  "Dieter Lunn is a software developer building Rails and React products end to end — dealer loyalty platforms, hiring and onboarding systems, and booking sites.";

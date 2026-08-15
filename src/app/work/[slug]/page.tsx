@@ -111,7 +111,7 @@ export default async function CaseStudy({
           <div className="reveal relative aspect-video rounded-2xl overflow-hidden border border-rule bg-card">
             <Image
               src={project.screenshot}
-              alt={`${project.name} home page`}
+              alt={project.screenshotAlt}
               fill
               priority
               className="object-cover object-top"

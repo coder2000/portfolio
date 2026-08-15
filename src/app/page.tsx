@@ -69,10 +69,17 @@ export default function Home() {
           <p className="type-label text-accent-on-ink mb-8">
             Software Developer
           </p>
+          {/* The name carries the design; the role carries the search. The
+              suffix is visually hidden rather than absent because the h1 is
+              the page's strongest heading and "Dieter Lunn" alone says
+              nothing about what he does. It duplicates the eyebrow directly
+              above, which is visible — so this reads the same to a crawler,
+              a screen reader, and an eye. */}
           <h1 className="type-hero text-on-ink mb-12">
             Dieter
             <br />
             Lunn
+            <span className="sr-only"> — Software Developer</span>
           </h1>
           <div className="flex items-end justify-between flex-wrap gap-6 border-t border-ink-line pt-8">
             <p className="text-on-ink-muted text-lg max-w-sm leading-relaxed">
@@ -125,7 +132,7 @@ export default function Home() {
                 <div className="relative aspect-video bg-paper overflow-hidden">
                   <Image
                     src={project.screenshot}
-                    alt={`${project.name} screenshot`}
+                    alt={project.screenshotAlt}
                     fill
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, 50vw"
