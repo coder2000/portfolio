@@ -28,6 +28,11 @@ export const SITE_TITLE = "Dieter Lunn — Software Developer";
  * true of every portfolio ever written and matches no query anyone types; the
  * stack and the kinds of systems built are what someone is actually searching
  * for. Kept under ~160 characters so it survives intact in a result snippet.
+ *
+ * Famli is named outright, and last, because it is the only entry that is a
+ * product rather than a commission — a developer who also runs one is a
+ * different proposition from a developer who only takes briefs, and the
+ * sentence should say so before a visitor has scrolled to find out.
  */
 export const SITE_DESCRIPTION =
-  "Dieter Lunn is a software developer building Rails and React products end to end — dealer loyalty platforms, hiring and onboarding systems, and booking sites.";
+  "Dieter Lunn is a software developer building Rails and React products end to end — dealer loyalty, hiring, and booking platforms, and Famli, an indie SaaS.";

@@ -216,6 +216,44 @@ export const projects: Project[] = [
     ogImage: "/og/fishingcreektrans.png",
     stack: ["Rails 8", "Inertia", "React", "Tailwind"],
   },
+  {
+    slug: "famli",
+    name: "Famli",
+    url: "https://famli.app",
+    host: "famli.app",
+    sector: "Family sharing \u00b7 Own product",
+    summary:
+      "Private family sharing, paid for by the families in it rather than by what\u2019s in their photos.",
+    description:
+      "My own product, live and taking subscriptions. A private, invite-only place for a family to share photos, video, and the small moments in between \u2014 no ads, no ranked feed, no strangers. Albums are visible only to the family invited to them, video is transcoded properly instead of crushed, and face grouping pulls one child\u2019s whole life out of a decade of uploads. Shipped in English, Canadian French, and Spanish.",
+    context:
+      "Somewhere to put photographs of your children is the one thing every free platform is happy to provide, and the photograph is the price. It becomes an ad segment, a ranking signal, or training data, and the family that shared it has no say in which. Famli is my own product, built and run on the opposite arrangement: the family pays, and the photos stay photos.",
+    challenge:
+      "Turning down that revenue means the family has to be the customer, and a subscription is a far smaller number than an ad network. Every feature has to survive that arithmetic. Transcoded video, face grouping, and a decade of full-resolution originals are costs that compound with each upload, while the monthly price stays exactly where it was \u2014 so the storage bill grows forever and the revenue per family does not. That constraint decides what ships.",
+    capabilities: [
+      {
+        title: "Invite-only albums",
+        body: "A family reaches an album because someone invited them to it, and visibility is scoped per album rather than broadcast to everyone in the account.",
+      },
+      {
+        title: "Video that survives the upload",
+        body: "Clips are transcoded rather than recompressed into mush \u2014 the single clearest example of a feature the subscription pays for instead of an advertiser.",
+      },
+      {
+        title: "Face grouping",
+        body: "Photos are grouped by who is in them, so one child\u2019s whole life comes back as a set rather than as ten years of scrolling.",
+      },
+      {
+        title: "Family tree and timelines",
+        body: "Relationships are recorded as a tree, and each member has a timeline \u2014 which is what makes the archive navigable by person rather than only by date.",
+      },
+    ],
+    screenshot: "/screenshots/famli.png",
+    screenshotAlt:
+      "The Famli home page: an \u201cInvite-only \u00b7 Private by design\u201d badge above the headline \u201cThe private space your family deserves,\u201d beside a column of family posts \u2014 a first day of school, a 70th birthday dinner, grandma\u2019s apple pie.",
+    ogImage: "/og/famli.png",
+    stack: ["Rails 8", "Inertia", "React", "Tailwind"],
+  },
 ];
 
 export function getProject(slug: string): Project | undefined {
